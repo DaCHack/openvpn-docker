@@ -58,6 +58,6 @@ jobs:
         name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v5
         with:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-          DOCKERHUB_REPOSITORY:  ${{ secrets.DOCKER_HUB_USERNAME }}/openvpn
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          repository:  ${{ secrets.DOCKER_HUB_USERNAME }}/openvpn
