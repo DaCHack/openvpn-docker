@@ -15,10 +15,7 @@ Make sure you have port forwarding activated in the kernel.
 
 Allow forwarding from and to the tunnel in your firewall, e.g.:
 ```
-sudo iptables -A FORWARD -s 192.168.3.0/24 -m comment --comment OpenVPN -j ACCEPT
-sudo iptables -A FORWARD -d 192.168.3.0/24 -m comment --comment OpenVPN -j ACCEPT
-sudo iptables -A FORWARD -s 192.168.178.0/24 -m comment --comment OpenVPN -j ACCEPT
-sudo iptables -A FORWARD -d 192.168.178.0/24 -m comment --comment OpenVPN -j ACCEPT
+View older version to see this code
 ```
 And -if everything works as expected - install iptables-persistent to make sure these settings survive a reboot:
 ```
