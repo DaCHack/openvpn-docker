@@ -15,11 +15,14 @@ Make sure you have port forwarding activated in the kernel.
 
 Allow forwarding from and to the tunnel in your firewall, e.g.:
 ```
-View older version to see this code
+sudo iptables -A FORWARD -s 192.168.3.0/24 -m comment --comment OpenVPN -j ACCEPT
+sudo iptables -A FORWARD -d 192.168.3.0/24 -m comment --comment OpenVPN -j ACCEPT
+sudo iptables -A FORWARD -s 192.168.178.0/24 -m comment --comment OpenVPN -j ACCEPT
+sudo iptables -A FORWARD -d 192.168.178.0/24 -m comment --comment OpenVPN -j ACCEPT
 ```
 And -if everything works as expected - install iptables-persistent to make sure these settings survive a reboot:
 ```
-View older version to see this code
+apt-get install iptables-persistent
 ```
 
 ## Image on Docker Hub
@@ -30,5 +33,13 @@ https://github.com/DaCHack/openvpn-docker
 
 ## Docker-compose
 ```
-View older version to see this code
+  openvpn:
+    image: dachack/openvpn
+    container_name: "openvpn" # choose any name you like
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    restart: unless-stopped # always restart in case of issues or system reboot
+    network_mode: "host" # as far as I read OpenVPN requires host network 
+    ports:
+      - 1194:1194/udp
 ```
