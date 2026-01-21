@@ -44,8 +44,8 @@ https://github.com/DaCHack/openvpn-docker
       - 1194:1194/udp
     volumes:
       - "/root/containers/openvpn:/etc/openvpn" # use your existing config here or create a new one based on OpenVPN config reference
-      - "/path/to/your/passwd:/etc/passwd" # if using PAM auth simply use the users on the host for VPN login by linking/copying passwd and shadow files or create custom files based on the Alpine template
-      - "/path/to/your/shadow:/etc/shadow" # see above
+      - "/path/to/your/passwd:/etc/_p_ass_wd" # if using PAM auth simply use the users on the host for VPN login by linking/copying passwd and shadow files or create custom files based on the Alpine template
+      - "/path/to/your/shadow:/etc/_sha_dow" # see above
     devices:
       - "/dev/net/tun:/dev/net/tun" # Give permission to use the tunnel device of the host
     cap_add:
