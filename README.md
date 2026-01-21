@@ -32,6 +32,7 @@ https://hub.docker.com/r/dachack/openvpn
 https://github.com/DaCHack/openvpn-docker
 
 ## Docker-compose
+Caution: Due to Dockerhub's web application firewall settings (cloudflare) I needed to mask the passwd and shadow file path mapping inside of the container. Please remove the underscores ("_") in the listing below! except for "NET_ADMIN"!
 ```
   openvpn:
     image: dachack/openvpn
